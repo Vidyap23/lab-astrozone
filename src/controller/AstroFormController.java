@@ -27,6 +27,12 @@ public class AstroFormController extends HttpServlet {
 		String month=request.getParameter("dob2");
 		String year=request.getParameter("dob3");
 		String dob = date+"-"+month+"-"+year;	
+		User user=new User(name,gender,date,month);
+		user.setName(name);
+		user.setGender(gender);
+		
+		user.setDate(date);
+		user.setMonth(month);
 		
 		if(astrosign.equals("Aquarius")){
 			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/Outputview.jsp");
