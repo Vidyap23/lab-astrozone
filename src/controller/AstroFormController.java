@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import  model.User;
+import Service.Astrocalculator;
 
 
 @WebServlet(urlPatterns = {"/entervalue"})
@@ -33,6 +35,9 @@ public class AstroFormController extends HttpServlet {
 		
 		user.setDate(date);
 		user.setMonth(month);
+		 AstroCalculator astro= new  AstroCalculator();
+		
+		String astrosign =astro.findSign(user);
 		
 		if(astrosign.equals("Aquarius")){
 			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/Outputview.jsp");
